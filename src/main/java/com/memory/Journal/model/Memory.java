@@ -6,7 +6,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.util.Date;
-
+// Memory model using Mysql
 @Entity
 public class Memory {
 

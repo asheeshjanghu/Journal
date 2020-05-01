@@ -30,6 +30,7 @@ dependencies {
 	}
 	runtimeOnly 'mysql:mysql-connector-java'
 	implementation 'com.auth0:java-jwt:3.4.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 }
 
 test {
