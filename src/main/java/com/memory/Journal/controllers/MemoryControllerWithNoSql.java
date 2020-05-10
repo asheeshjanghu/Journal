@@ -1,6 +1,5 @@
 package com.memory.Journal.controllers;
 
-import com.memory.Journal.model.Memory;
 import com.memory.Journal.model.MemoryModelNoSql;
 import com.memory.Journal.repository.MemoryNoSqlRepository;
 import org.springframework.beans.factory.annotation.Autowired;

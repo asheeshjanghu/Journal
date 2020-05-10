@@ -4,6 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+mongodb_data_container/
 
 ### STS ###
 .apt_generated
