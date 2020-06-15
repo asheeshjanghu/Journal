@@ -1,7 +1,13 @@
 package com.memory.Journal.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -24,11 +30,14 @@ public class User {
     private String lastName;
 
     @Column(name = "enrolled_on")
-    private String enrolledOn;
+    @Temporal(TemporalType.DATE)
+    @CreationTimestamp
+    private Date enrolledOn;
 
-    @NotBlank
+    @NotNull
     @Column(name = "date_of_birth")
-    private String dateOfBirth;
+    @Temporal(TemporalType.DATE)
+    private Date dateOfBirth;
 
     @NotBlank
     @Column(name = "email", nullable = false, updatable = false, unique = true)
@@ -70,19 +79,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEnrolledOn() {
+    public Date getEnrolledOn() {
         return enrolledOn;
     }
 
-    public void setEnrolledOn(String enrolledOn) {
+    public void setEnrolledOn(Date enrolledOn) {
         this.enrolledOn = enrolledOn;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
