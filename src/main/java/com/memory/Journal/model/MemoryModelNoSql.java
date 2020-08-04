@@ -1,10 +1,10 @@
 package com.memory.Journal.model;
 // Memory model using MongoDB
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
 import java.util.Date;
 
 @Document
@@ -17,8 +17,12 @@ public class MemoryModelNoSql {
 
     String dayMemory;
 
-    @Indexed(unique = true)
+    @Indexed
     Date memoryDate;
+
+    Date updatedAt = new Date();
+
+    Date createdAt = new Date();
 
     public String getId() {
         return id;
@@ -50,5 +54,21 @@ public class MemoryModelNoSql {
 
     public void setMemoryDate(Date memoryDate) {
         this.memoryDate = memoryDate;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = new Date();
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

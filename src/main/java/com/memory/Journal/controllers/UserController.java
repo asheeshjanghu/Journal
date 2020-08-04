@@ -1,6 +1,7 @@
 package com.memory.Journal.controllers;
 
 import com.memory.Journal.exceptions.ResourceNotFoundException;
+import com.memory.Journal.exceptions.UserNotFoundException;
 import com.memory.Journal.model.User;
 import com.memory.Journal.repository.UserRepository;
 import com.memory.Journal.userHelper.UserHelper;
@@ -31,7 +32,11 @@ public class UserController {
     //Get user by username
     @GetMapping("/user/{username}")
     public User getUserByUsername(@Valid @PathVariable("username") String username) {
-        return userRepository.findByUsername(username).get();
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isPresent()) {
+            return user.get();
+        }
+        throw  new UserNotFoundException();
     }
 
     // get All users

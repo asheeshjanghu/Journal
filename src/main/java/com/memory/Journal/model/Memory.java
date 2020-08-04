@@ -1,5 +1,7 @@
 package com.memory.Journal.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.ValueGenerationType;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -25,12 +27,12 @@ public class Memory {
     private Date dateOfMemory;
 
 
-    @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    @Column
     private Date createdDate;
 
-    @LastModifiedDate
-    @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
+    @Column
     private Date lastModified;
 
     public Integer getId() {
