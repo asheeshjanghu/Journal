@@ -8,6 +8,6 @@ public class NewsAlert {
 
     @Scheduled(fixedRate = 1000L)
     public void sendNewsAlerts() {
-        System.out.println("Sent email.");
+//        System.out.println("Sent email.");
     }
 }
