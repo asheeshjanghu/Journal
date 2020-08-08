@@ -35,6 +35,7 @@ public class SecurityConfigAdapter extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/actuator/*").permitAll()
                 .antMatchers("/signup")
                 .permitAll()
                 .antMatchers("/home")
