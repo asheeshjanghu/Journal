@@ -18,6 +18,18 @@ public class SecurityConfigAdapter extends WebSecurityConfigurerAdapter {
 
     private BCryptPasswordEncoder passwordEncoder;
 
+    private static final String[] AUTH_WHITELIST = {
+            // -- swagger ui
+            "/v2/api-docs",
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/configuration/ui",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/webjars/**"
+            // other public endpoints of your API may be appended to this array
+    };
+
     @Autowired
     public SecurityConfigAdapter(MyUserDetailsService myUserDetailsService, BCryptPasswordEncoder passwordEncoder) {
         this.myUserDetailsService = myUserDetailsService;
@@ -36,6 +48,7 @@ public class SecurityConfigAdapter extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/actuator/*").permitAll()
+                .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers("/signup")
                 .permitAll()
                 .antMatchers("/home")
